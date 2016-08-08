@@ -1,0 +1,11 @@
+<div class="contents row" >
+    <p><%= @articles %>の記事一覧</p>
+    <% @articles.each do |article| %>
+    <div class="content_post">
+      <span class="name"><%= article.user_id %></span>
+      <div class=""><img src="<%= article.image %>"></div>
+      <%= simple_format(article.text) %>
+    </div>
+      <% end %>
+    <%= paginate(@articles) %>
+  </div>
