@@ -10,7 +10,7 @@ def new
 end
 
 def create
-  Article.create(article_params)
+  Article.create(user_id: current_user.id, image: article_params[:image], text: article_params[:text])
 end
 
 private
