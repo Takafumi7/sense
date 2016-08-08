@@ -1,3 +1,10 @@
-<p>
-  Hello!
-</p>
+<div class="contents row" >
+    <% @articles.each do |article| %>
+  <div class="content_post">
+    <span class="name"><%= article.user_id %></span>
+    <div class=""><img src="(<%= article.image %>"></div>
+    <%= simple_format(article.text) %>
+  </div>
+    <% end %>
+  <%= paginate(@tweets) %>
+</div>
