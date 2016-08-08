@@ -2,9 +2,9 @@
     <% @articles.each do |article| %>
   <div class="content_post">
     <span class="name"><%= article.user_id %></span>
-    <div class=""><img src="(<%= article.image %>"></div>
+    <div class=""><img src="<%= article.image %>"></div>
     <%= simple_format(article.text) %>
   </div>
     <% end %>
-  <%= paginate(@tweets) %>
+  <%= paginate(@articles) %>
 </div>
