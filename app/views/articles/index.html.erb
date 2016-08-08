@@ -1,7 +1,7 @@
 <div class="contents row" >
     <% @articles.each do |article| %>
   <div class="content_post">
-    <span class="name"><%= article.user_id %></span>
+    <a href=""><span></span><%= article.user.name %></a>
     <div class=""><img src="<%= article.image %>"></div>
     <%= simple_format(article.text) %>
   </div>
