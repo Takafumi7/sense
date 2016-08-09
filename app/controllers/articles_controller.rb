@@ -13,6 +13,9 @@ def create
   Article.create(user_id: current_user.id, image: article_params[:image], text: article_params[:text])
 end
 
+def show
+  @article = Article.find(params[:id])
+end
 
 def destroy
     article = Article.find(params[:id])
