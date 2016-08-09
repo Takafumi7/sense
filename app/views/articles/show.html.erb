@@ -20,5 +20,36 @@
     <div class=""><img src="<%= @article.image %>"></div>
     <%= simple_format(@article.text) %>
   </div>
+<!-- ここからがコメントフォーム。ログインしていないと投稿できないようになっている -->
+    <div class="container">
+      <%  if current_user %>
+        <%= form_tag("/articles/#{@article.id}/comments",method: :post) do %>
+        <textarea name="text" rows="8" cols="30" placeholder="コメントする" rows="2"></textarea>
+        <input type="submit" name="name" value="">
+        <% end %>
+      <% end %>
+
+    <div class="comments">
+      <h4><コメント一覧></h4>
+       <% if @comments %>  <!-- コメントが空だった場合でもエラーが起こらないようにする --> -->
+        <% @comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %></strong>
+            <%= comment.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 
 </div>
