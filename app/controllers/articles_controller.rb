@@ -13,6 +13,15 @@ def create
   Article.create(user_id: current_user.id, image: article_params[:image], text: article_params[:text])
 end
 
+
+def destroy
+    article = Article.find(params[:id])
+   if article.user_id == current_user.id
+     article.destroy
+   end
+end
+
+
 private
 def article_params
   params.permit(:image , :text)
