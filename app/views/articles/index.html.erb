@@ -1,6 +1,12 @@
 <div class="contents row" >
-  <% @articles.each do |article| %>
-      <%= render partial: "article" , locals: {article: article} %>
-  <% end  %>
-  <%= paginate(@articles) %>
+
+
+    <% @articles.each do |article| %>
+    <!-- 下の判定はruby本来のtrue,falseと逆になっている -->
+    <% if article.status == false %>
+    <%= render partial: "article" , locals: {article: article} %>
+    <% end  %>
+    <% end  %>
+    <%= paginate(@articles) %>
+
 </div>
